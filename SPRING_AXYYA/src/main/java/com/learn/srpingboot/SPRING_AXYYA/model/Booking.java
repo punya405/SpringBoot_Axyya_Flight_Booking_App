@@ -14,11 +14,11 @@ public class Booking {
 	private String bookingDate;
 	@Column(name = "no_of_passenger", nullable = false)
 	private int noOfPassengers;
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "flight_id", referencedColumnName = "flightNo")
 	private Flight flight;
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "booking_id", referencedColumnName = "bookingId")
 	private List<Passenger> passengers;
 
